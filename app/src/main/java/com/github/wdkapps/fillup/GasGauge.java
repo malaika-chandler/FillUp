@@ -330,7 +330,8 @@ public class GasGauge extends View {
 	 */
 	private void drawHand(Canvas canvas) {
 		float handAngle = positionToAngle(handPosition);
-		canvas.save(Canvas.MATRIX_SAVE_FLAG);
+//		canvas.save(Canvas.MATRIX_SAVE_FLAG);
+		canvas.saveLayer(0, 0, getWidth(), getHeight(), null);
 		canvas.rotate(handAngle, 0.5f, 0.65f);
 		canvas.drawPath(handPath, handPaint);
 		canvas.restore();
@@ -360,7 +361,8 @@ public class GasGauge extends View {
 		drawBackground(canvas);
 
 		float scale = (float) getWidth();		
-		canvas.save(Canvas.MATRIX_SAVE_FLAG);
+//		canvas.save(Canvas.MATRIX_SAVE_FLAG);
+		canvas.saveLayer(0, 0, getWidth(), getHeight(), null);
 		canvas.scale(scale, scale);
 		drawHand(canvas);
 		canvas.restore();
